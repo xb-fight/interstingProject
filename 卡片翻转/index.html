@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .card {
+            width: 200px;
+            height: 280px;
+            overflow: hidden;
+            perspective: 1000px;
+            border-radius: 10px;
+        }
+
+        .card div {
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0 0 5px;
+            backface-visibility: hidden;
+            transition: 1s;
+        }
+
+        .card .front {
+            transform: rotateY(0deg);
+        }
+
+        .card .back {
+            transform: rotateY(180deg)
+        }
+
+        .card.flipped .front {
+            transform: rotateY(-180deg);
+        }
+
+        .card.flipped .back {
+            transform: rotateY(0deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="front">
+            <img src="./font.jfif" alt="">
+        </div>
+        <div class="back">
+            <img src="./back.jfif" alt="">
+        </div>
+    </div>
+    <script>
+        var card = document.querySelector('.card');
+        card.addEventListener('click', function () {
+            card.classList.toggle('flipped');
+        });
+    </script>
+</body>
+
+</html>
